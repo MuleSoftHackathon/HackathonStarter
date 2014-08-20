@@ -8,12 +8,12 @@ Make sure you follow the instructions below:
 A.Clone this repository
 =======================
 
-0. Clone this repository to your computer
+1. Clone this repository to your computer
 ```
 git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
 ```
 
-0. Fetch the Bluetooth Server submodule
+2. Fetch the Bluetooth Server submodule
 ```
 cd HackthonStarter
 git submodule update --init
@@ -52,12 +52,15 @@ C.Run the example project
 ```
 cd example
 ```
+
 2. Install node dependencies
 ```
 npm install
 ```
+
 3. Run the demo
 ```
 grunt
 ```
+
 4. Open the browser and navigate to `http://localhost:9000`
