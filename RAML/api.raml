@@ -1,0 +1,467 @@
+#%RAML 0.8
+---
+title: MuleSoft Hackathon API Server
+version: v0.1
+baseUri: http://server/api/{version}
+
+/remoteDevice:
+/pi/{deviceId}:
+  /motionSensorHook:
+    post:
+      description: Register a webhook that will get called when the motion sensor is triggered
+      queryParameters:
+        address:
+          displayName: Address
+          type: string
+          description: A web hook address to be triggered when motion sensor detects motion
+          example: http://myapp.io/motionDetected
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                 {
+                   "data": {
+                     "link": "http://myapp.io/motionDetected"
+                   },
+                   "message": "Registered",
+                   "status": "ok"
+                 }
+        400:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "link": "http://myapp.io/motionDetected"
+                   },
+                   "message": "Hook already set",
+                   "status": "error"
+                 }
+    delete:
+      description: Remove a registered webhook
+      queryParameters:
+        address:
+          displayName: Address
+          type: string
+          description: A web hook address to be triggered when motion sensor detects motion
+          example: http://myapp.io/motionDetected
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "link": "http://myapp.io/motionDetected"
+                   },
+                   "message": "Deleted",
+                   "status": "ok"
+                 }
+        400:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "link": "http://myapp.io/motionDetected"
+                   },
+                   "message": "Hook not registered",
+                   "status": "error"
+                 }
+  /rangeSensor:
+    get:
+      description: Obtain the measurements from the distance sensor
+      responses:
+        200:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "distanceCm": 10.4,
+                     "distanceInches": 4.09
+                   },
+                   "message": "Success",
+                   "status": "ok"
+                 }
+  /gpio/{gpioNumber}:
+    post:
+      description: Set high/low to a specific gpio pin on raspberry pi board
+      queryParameters:
+        value:
+          displayName: Value
+          type: integer
+          description: 0 - low; 1 - high
+          example: 1
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "value": 1
+                   },
+                   "message": "Success",
+                   "status": "ok"
+                 }
+        500:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "value": 1
+                   },
+                   "message": "Failed",
+                   "status": "error"
+                 }
+    get:
+      description: Get the value of a specific gpio pin on raspberry pi board
+      queryParameters:
+        value:
+          displayName: Value
+          type: integer
+          description: 0 - low; 1 - high
+          example: 1
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+             example: |
+                 {
+                   "data": {
+                     "value": 1
+                   },
+                   "message": "Success",
+                   "status": "ok"
+                 }
+        500:
+          body:
+            application/json:
+             example: |
+                 {
+                   "message": "Failed",
+                   "status": "error"
+                 }
+    /toggle:
+      get:
+        description: Toggle the value of a specific gpio pin on raspberry pi board, and returns the value after toggling
+        responses:
+          200:
+            body:
+              application/json:
+               example: |
+                 {
+                   "data": {
+                     "value": 0
+                   },
+                   "message": "Success",
+                   "status": "ok"
+                 }
+/rccar/{deviceId}:
+  /open:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: open port connection to the rccar
+  /close:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: close port connection to the rccar
+  /forward:
+    get:
+      queryParameters:
+        time:
+          description: the duration of the movement in milliseconds
+          required: false
+          type: integer
+          default: 500
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: let the car go forward
+  /backward:
+   get:
+      queryParameters:
+        time:
+          description: the duration of the movement in milliseconds
+          required: false
+          type: integer
+          default: 500
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: let the car go backward
+  /stop:
+    get:
+      description: let the car stop
+  /left:
+    get:
+      queryParameters:
+        time:
+          description: the duration of the movement in milliseconds
+          required: false
+          type: integer
+          default: 500
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: let the car go left
+  /right:
+    get:
+      queryParameters:
+        time:
+          description: the duration of the movement in milliseconds
+          required: false
+          type: integer
+          default: 500
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "message": { "type": "string" }
+                }
+      description: let the car go right
+  /power:
+    get:
+      queryParameters:
+        power:
+          description: the power output to the motors
+          required: false
+          type: integer
+          default: 191
+          minimum: 191
+          maximum: 255
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "power": {
+                    "type": "number",
+                    "minimum": 191,
+                    "maxiimum": 255
+                  },
+                  "message": { "type": "string" }
+                }
+      description: set the power of car to
+  /sensing:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              schema: |
+                {
+                  "status": {
+                    "type": "string",
+                    "enum": [ "ok", "error" ]
+                  },
+                  "left": { "type": "number" },
+                  "right": { "type": "number" },
+                  "message": { "type": "string" }
+                }
+      description: get the sensing on the motors
+
+/shphero/{deviceId}:
+  /connect:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": { "type": "string" }
+                  }
+      description: connect to the sphero
+
+  /close:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": { "type": "string" }
+                  }
+      description: close connection
+
+  /rotate:
+    get:
+      queryParameters:
+        angle:
+          description: the rotating angle of the sphero
+          required: true
+          type: integer
+          minimum: -180
+          maximum: 179
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": { "type": "string" }
+                  }
+      description: rotate the sphero
+
+  /color:
+    get:
+      queryParameters:
+        r:
+          description: propotion of red color
+          required: true
+          type: integer
+          minimum: 0
+          maximum: 255
+        g:
+          description: propotion of green color
+          required: true
+          type: integer
+          minimum: 0
+          maximum: 255
+        b:
+          description: propotion of blue color
+          required: true
+          type: integer
+          minimum: 0
+          maximum: 255
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": { "type": "string" }
+                  }
+      description: set the LED color
+
+  /move:
+    get:
+      queryParameters:
+        speed:
+          description: rolling speed
+          required: true
+          type: integer
+          minimum: 0
+          maximum: 99
+        angle:
+          description: rolling direction
+          required: true
+          type: integer
+          minimum: 0
+          maximum: 355
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": { "type": "string" }
+                  }
+      description: make sphero rolling
+
+  /sensing:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+                schema: |
+                  {
+                    "status": {
+                      "type": "string",
+                      "enum": [ "ok", "error" ]
+                    },
+                    "message": {
+                      "type": ["array", "string"]
+                    }
+                  }
+      description: get the rotated angle of sphero
