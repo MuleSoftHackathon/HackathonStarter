@@ -3,7 +3,12 @@ Hackathon Starter
 
 Starter pack for the Connect4U Hackathon
 
-0. Before starting, make sure you follow the instructions below:
+Make sure you follow the instructions below:
+
+A.Clone this repository
+=======================
+
+0. Clone this repository to your computer
 ```
 git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
 ```
@@ -14,7 +19,7 @@ cd HackthonStarter
 git submodule update --init
 ```
 
-Setup the Bluetooth Server locally
+B.Setup the Bluetooth Server
 ==================================
 
 1. Go to bluetooth directory
@@ -40,5 +45,19 @@ Setup the Bluetooth Server locally
   Connect to central server
   ```
 
-Run the example project
+C.Run the example project
 ====================
+
+1. Go to the example directory
+```
+cd example
+```
+2. Install node dependencies
+```
+npm install
+```
+3. Run the demo
+```
+grunt
+```
+4. Open the browser and navigate to `http://localhost:9000`
