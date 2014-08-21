@@ -65,4 +65,4 @@ C. Run the example project
   grunt
   ```
 
-4. Open the browser and navigate to `http://localhost:9000`
+4. Open the browser and navigate to [`http://localhost:9000`](http://localhost:9000)
