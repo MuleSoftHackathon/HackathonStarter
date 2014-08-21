@@ -5,7 +5,7 @@ Starter pack for the Connect4U Hackathon
 
 Make sure you follow the instructions below:
 
-A.Clone this repository
+A. Clone this repository
 =======================
 
 1. Clone this repository to your computer
@@ -19,7 +19,7 @@ cd HackthonStarter
 git submodule update --init
 ```
 
-B.Setup the Bluetooth Server
+B. Setup the Bluetooth Server
 ==================================
 
 1. Go to bluetooth directory
@@ -45,7 +45,7 @@ B.Setup the Bluetooth Server
   Connect to central server
   ```
 
-C.Run the example project
+C. Run the example project
 ====================
 
 1. Go to the example directory
