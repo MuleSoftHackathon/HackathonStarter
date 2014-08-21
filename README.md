@@ -9,15 +9,15 @@ A. Clone this repository
 =======================
 
 1. Clone this repository to your computer
-```
-git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
-```
+  ```
+  git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
+  ```
 
 2. Fetch the Bluetooth Server submodule
-```
-cd HackthonStarter
-git submodule update --init
-```
+  ```
+  cd HackthonStarter
+  git submodule update --init
+  ```
 
 B. Setup the Bluetooth Server
 ==================================
