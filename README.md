@@ -41,9 +41,9 @@ B. Setup the Bluetooth Server
   ```
   node app/app.js central_server_ip central_server_port your_key
   ``` 
-  then, you should see the message
+  then, you should see the message if the parameters are correct
   ```
-  Connect to central server
+  Successfully connect to central server
   ```  
 
 C. Run the example project
