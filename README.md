@@ -12,7 +12,7 @@ A. Clone this repository
 
 2. Clone this repository to your computer
   ```
-  git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
+  git clone --recursive https://github.com/MuleSoftHackathon/HackathonStarter.git
   ```
 
 3. Fetch the Bluetooth Server submodule
