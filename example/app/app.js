@@ -20,7 +20,7 @@ angular.module('myApp', ['ngResource'])
         objDiv.scrollTop = objDiv.scrollHeight;
       });
       spheroRequest.get({action:'connect'}, function(msg){
-        $scope.message.push(msg.data);
+        $scope.message.push(msg.message);
         objDiv.scrollTop = objDiv.scrollHeight;
       });
     };
@@ -78,7 +78,7 @@ angular.module('myApp', ['ngResource'])
     };
     function twink( color, callback ){
       spheroRequest.get({action:'color', r:color.r, g:color.g, b:color.b}, function(msg){
-        $scope.message.push(msg.data);
+        $scope.message.push(msg.message);
         objDiv.scrollTop = objDiv.scrollHeight;
         if( callback ){
           callback();
