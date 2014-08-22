@@ -15,16 +15,15 @@ A. Clone this repository
   git clone --recursive https://github.com/MuleSoftHackathon/HackathonStarter.git
   ```
 
-3. Fetch the Bluetooth Server submodule
+3. Move to HackthonStarter directory
   ```
   cd HackthonStarter
-  git submodule update --init
   ```
 
 B. Setup the Bluetooth Server
 ==================================
 
-1. Go to bluetooth directory
+1. Move to BluetoothServer directory
   ```
   cd BluetoothServer
   ```
