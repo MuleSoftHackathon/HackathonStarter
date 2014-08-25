@@ -82,7 +82,15 @@ C. Run the example project
 and You should see a page like this:
 ![Example app screenshot](http://imgur.com/lt7iAdr.png)
 
-5. Make sure your sphero and the car is *paired with your computer* using Bluetooth, click on the
+5. Open the bluetooth setting panel and pair with sphero and rccar.
+### Bluetooth Pairing
+Once removed from the charger, you need to shake the sphero twice until it lights up with your 3-color signature. At this point you should see the device in your Bluetooth settings (in System Preferences) and can click *Pair* to pair with the device. Any time the Sphero wakes up (e.g., was not "lit up" and you shook it to light it up) **you will have to remove and re-pair the device**.
+
+ * **Remove and re-pair**: Any time you see the Sphero device in your Bluetooth settings but *Not Connected*, you should forget the device (right click -> *Remove*), wait for the Sphero to show up again, and click *Pair* again.
+
+ * **Reset the device**: If you still have issues connecting, you can reset the device (described in the Sphero *Quick-Start Guide* manual) and try again. Make sure to remove the device from your paired Blueooth devices and re-pair after resetting.
+
+6. Make sure your sphero and the car is *paired with your computer* using Bluetooth, click on the
 *connect* button to open the connection to both Bluetooth devices.
 
 6. Issue any command with the *FWD*/*BWD*/*LEFT*/*RIGHT* button to move the car around.
