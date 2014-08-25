@@ -1,21 +1,35 @@
 Hackathon Starter
 ================
 
-Starter pack for the Connect4U Hackathon
+This starter pack is here to get you started and up to speed for the Connect4U Hackathon.
+It contains the following components:
 
-Make sure you follow the instructions below:
+- `\BluetoothServer`: A **Bluetooth server** that will run locally on your machine
+- `\example`: An **example application** that demonstrates functionalities of the car, the sphero,
+and the raspberry pi.
+- `\RAML`: A **RAML file** that describes the RESTful API you'll be interacting with to control all
+your device. For more information on RAML, please refer to [http://raml.org/](http://raml.org/)
+
+To get started, follow the instructions below:
+
+Environment Setup
+=================
+
+1. Download and intall node.js: [http://nodejs.org/](http://nodejs.org/)
+
+2. Connect your laptop to the **connect4U_2.4G** or **connect4U_5G** wifi network
+
 
 A. Clone this repository
 =======================
 
-1. Install nodeJS from [here](http://nodejs.org/)
-
-2. Clone this repository to your computer
+1. Clone this repository to your computer with **--recursive** option, so that it
+  fetches:
   ```
   git clone --recursive https://github.com/MuleSoftHackathon/HackathonStarter.git
   ```
 
-3. Move to HackthonStarter directory
+1. Move into the `/HackthonStarter` folder:
   ```
   cd HackthonStarter
   ```
@@ -23,12 +37,12 @@ A. Clone this repository
 B. Setup the Bluetooth Server
 ==================================
 
-1. Move to BluetoothServer directory
+1. Move into the `/BluetoothServer` folder:
   ```
   cd BluetoothServer
   ```
 
-2. Install node modules
+2. Install node modules and dependencies:
   ```
   npm install
   ```
@@ -37,10 +51,10 @@ B. Setup the Bluetooth Server
   sudo npm install
   ```
 
-3. Run bluetooth server
+3. Run bluetooth server:
   ```
-  node app/app.js central_server_ip central_server_port your_key
-  ``` 
+  node app/app.js <api_server_ip> <api_server_port> <team_key>
+  ```
   then, you should see the message if the parameters are correct
   ```
   Successfully connect to central server
@@ -61,7 +75,18 @@ C. Run the example project
 
 3. Run the demo
   ```
-  grunt
+  grunt --serverIP=<api_server_ip>
   ```
 
-4. Open the browser and navigate to [`http://localhost:9000`](http://localhost:9000)
+4. Open the browser and navigate to [`http://localhost:9000`](http://localhost:9000),
+and You should see a page like this:
+![Example app screenshot](http://imgur.com/lt7iAdr.png)
+
+5. Make sure your sphero and the car is *paired with your computer* using Bluetooth, click on the
+*connect* button to open the connection to both Bluetooth devices.
+
+6. Issue any command with the *FWD*/*BWD*/*LEFT*/*RIGHT* button to move the car around.
+If something is within the 10-inch range of the distance sensor on the raspberry pi after the
+car moved, it will trigger the sphero to flash for 5 seconds.
+
+7. Now go ahead and start hacking something epic!
