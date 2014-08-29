@@ -1,10 +1,11 @@
-Hackathon Starter
+Connect4U Hackathon Starter
 ================
 
-This starter pack is here to get you started and up to speed for the Connect4U Hackathon.
+This starter pack is here to get you started and up-to-speed for the Connect4U Hackathon.
 It contains the following components:
 
-- `\BluetoothServer`: A **Bluetooth server** that will run locally on your machine
+- `\BluetoothServer`: A **Bluetooth server** that will run locally on your machine, accepting http requests forwarded by
+the API server, and translating them into Bluetooth commands to the car or the sphero.
 - `\example`: An **example application** that demonstrates functionalities of the car, the sphero,
 and the raspberry pi.
 - `\RAML`: A **RAML file** that describes the RESTful API you'll be interacting with to control all
@@ -17,8 +18,7 @@ Environment Setup
 
 1. Download and intall node.js: [http://nodejs.org/](http://nodejs.org/)
 
-2. Connect your laptop to the **connect4U_2.4G** or **connect4U_5G** wifi network
-
+2. Connect your laptop to the **connect4U_2.4G** or **connect4U_5G** wifi network, with the password `connect4U`
 
 A. Clone this repository
 =======================
@@ -75,20 +75,21 @@ C. Run the example project
 
 3. Run the demo
   ```
-  grunt --serverIP=<api_server_ip>
+  grunt
   ```
 
-4. Open the browser and navigate to [`http://localhost:9000`](http://localhost:9000),
-  and You should see a page like this:
+4. Your browser will open a page to [`http://localhost:9000`](http://localhost:9000),
+  and it should look like this:
   ![Example app screenshot](http://imgur.com/lt7iAdr.png)
-  
-5. Open the bluetooth setting panel and pair with sphero and rccar.
+
+5. Now open the Bluetooth settings panel and pair the sphero and the rccar with
+your laptop.
   ### Bluetooth Pairing
 
   * **RCCar**: Pair with rccar with options code 1234.
   * **Sphero**: Once removed from the charger, you need to shake the sphero twice until it lights up with your 3-color signature. At this point you should see the device in your Bluetooth settings (in System Preferences) and can click *Pair* to pair with the device. Any time the Sphero wakes up (e.g., was not "lit up" and you shook it to light it up) **you will have to remove and re-pair the device**.
-     * **Remove and re-pair**: Any time you see the Sphero device in your Bluetooth settings but *Not Connected*, you should forget the device (right click -> *Remove*), wait for the Sphero to show up again, and click *Pair* again.
-     * **Reset the device**: If you still have issues connecting, you can reset the device (put it on the charger) and try again. Make sure to remove the device from your paired Blueooth devices and re-pair after resetting.
+    * **Remove and re-pair**: Any time you see the Sphero device in your Bluetooth settings but *Not Connected*, you should forget the device (right click -> *Remove*), wait for the Sphero to show up again, and click *Pair* again.
+    * **Reset the device**: If you still have issues connecting, you can reset the device (put it on the charger) and try again. Make sure to remove the device from your paired Blueooth devices and re-pair after resetting.
 
 6. Make sure your sphero and the car is *paired with your computer* using Bluetooth, click on the
 *connect* button to open the connection to both Bluetooth devices.

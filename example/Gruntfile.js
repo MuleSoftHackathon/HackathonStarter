@@ -6,8 +6,8 @@ var mountFolder = function (connect, dir) {
 };
 
 module.exports = function(grunt){
-  var centralServerIp = grunt.option('serverIP');
-  console.log(centralServerIp);
+  // var centralServerIp = grunt.option('serverIP');
+  // console.log(centralServerIp);
   grunt.initConfig({
     watch: {
       livereload: {
@@ -30,7 +30,7 @@ module.exports = function(grunt){
         proxies: [
           {
             context: ['/sphero', '/rccar', '/pi'],
-            host: centralServerIp,
+            host: '192.168.0.2',
             port: 8080
           }
         ]

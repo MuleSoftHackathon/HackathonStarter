@@ -15,10 +15,13 @@ angular.module('myApp', ['ngResource'])
     $scope.message = [];
 
     $scope.connectBtn = function(){
+      // Open the connection to the rccar
       carRequest.get({action:'open'}, function(msg){
         $scope.message.push(msg.message);
         objDiv.scrollTop = objDiv.scrollHeight;
       });
+
+      // Open the connection to the sphero
       spheroRequest.get({action:'connect'}, function(msg){
         $scope.message.push(msg.message);
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -26,16 +29,18 @@ angular.module('myApp', ['ngResource'])
     };
     $scope.send = function(action){
       var promise = carRequest.get({action:action}, function(msg){
+        // log the message
         $scope.message.push(msg.message);
         objDiv.scrollTop = objDiv.scrollHeight;
 
-        if( action === 'forward' ){
-          piRequest.get({action:'rangeSensor'}, function(res) {
-            if (res.data.distanceInCm < 20.0) {
-              $scope.makeTwink();
-            }
-          });
-        }
+        // get the readings from the distance sensor on the pi
+        piRequest.get({action:'rangeSensor'}, function(res) {
+          $scope.distance = res.data.distanceInches;
+
+          if (res.data.distanceInches < 6.0) {
+            $scope.makeTwink();
+          }
+        });
       });
     };
     $scope.power = function(){
@@ -66,7 +71,7 @@ angular.module('myApp', ['ngResource'])
             twink({r: 255, g:255, b:255}, twinkling);
             round = 0;
           }
-        }, 400);
+        }, 300);
       };
 
       setTimeout(function(){

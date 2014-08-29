@@ -1,5 +1,6 @@
 {
-  "name": "application-name",
+  "name": "Connect4U_Example_App",
+  "description": "This sample app demonstrates API capabilities",
   "version": "0.0.1",
   "dependencies": {
     "grunt": "^0.4.5",

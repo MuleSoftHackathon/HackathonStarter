@@ -7,6 +7,9 @@
 </head>
 <body ng-app="myApp" ng-controller="spheroCtrl">
     <div style="width: 1100px; margin: auto; margin-top:120px;">
+        <div id="distanceBox" class="alert alert-info pull-right" ng-hide="distance === undefined" role="alert">
+          <p>Distance to obstacle: <span>{{distance}}</span> Inches.</p>
+        </div>
         <div id="messageBox" class="panel panel-primary" style="width: 300px; float: left; margin-right: 150px; height: 400px; overflow-y: auto;">
             <div class="panel-heading">Response Message</div>
             <div class="panel-body">
@@ -15,6 +18,7 @@
                 </ol>
             </div>
         </div>
+
         <div style="float: left;">
             <button ng-click="connectBtn()" type="button" style="display: block; margin: 0 auto; width: 150px; height: 150px; margin-top: 0px; border-radius: 80px;" class="btn btn-success">{{connect}}</button>
             <button ng-click="makeTwink()" type="button" style="display: block; margin: 0 auto; width: 150px; height: 150px; margin-top: 100px; border-radius: 80px;" class="btn btn-success">TWINK</button>
