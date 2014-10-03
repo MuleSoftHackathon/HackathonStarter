@@ -23,15 +23,20 @@ Environment Setup
 A. Clone this repository
 =======================
 
-1. Clone this repository to your computer with **--recursive** option, so that it
+1. Clone this repository to your computer, so that it
   fetches:
   ```
-  git clone --recursive https://github.com/MuleSoftHackathon/HackathonStarter.git
+  git clone https://github.com/MuleSoftHackathon/HackathonStarter.git
   ```
-
-1. Move into the `/HackthonStarter` folder:
+2. Clone this Bluetooth Server repository to your computer, so that it
+  fetches:
   ```
-  cd HackthonStarter
+  git clone https://github.com/MuleSoftHackathon/BluetoothServer.git
+  ```
+3. (Optional) Clone PiServer and ApiServer for using with Raspberry Pi
+  ```
+  git clone https://github.com/MuleSoftHackathon/pi.git
+  git clone https://github.com/MuleSoftHackathon/apiserver.git
   ```
 
 B. Setup the Bluetooth Server
