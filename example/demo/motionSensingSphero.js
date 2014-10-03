@@ -7,10 +7,10 @@ var app = express();
 
 // Setup Motion Hook
 var options = {
-  url: 'localhost:8080/pi/MuleSoftHackathonTeam1/motionHook',
+  url: 'http://localhost:8080/pi/MuleSoftHackathonTeam1/motionHook',
   method: 'POST',
   json: {
-    address: 'localhost:8000/'
+    address: 'http://localhost:8000/'
   }
 };
 
@@ -19,7 +19,7 @@ request(options,
     if (!error) {
       console.log('Motion Hook setup.');
     } else {
-      console.log('Something wrong, hook not setup');
+      console.log('Something wrong, hook not setup!');
     }
   }
 );
@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
     if (!error) {
       console.log('Color changed!');
     } else {
-      console.log('Something wrong, hook not setup');
+      console.log('Something wrong, action not triggered!');
     }
   });
 });
