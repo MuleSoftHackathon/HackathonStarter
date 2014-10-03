@@ -5,9 +5,9 @@
 angular.module('myApp', ['ngResource'])
   .controller('spheroCtrl', function($scope, $resource){
 
-    var carRequest = $resource('/rccar/rccar1/:action', {action: '@action'}),
-        spheroRequest = $resource('/sphero/sphero1/:action', {action: '@action'}),
-        piRequest = $resource('/pi/pi1/:action', {action: '@action'}),
+    var carRequest = $resource('/rccar/MuleSoft%23Team%23Hackathon%401/:action', {action: '@action'}),
+        spheroRequest = $resource('/sphero/MuleSoft%23Team%23Hackathon%401/:action', {action: '@action'}),
+        piRequest = $resource('/pi/MuleSoft%23Team%23Hackathon%401/:action', {action: '@action'}),
         stopTwink = true,
         objDiv = document.getElementById("messageBox");
 

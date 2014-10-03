@@ -4,7 +4,13 @@ title: MuleSoft Hackathon API Server
 version: v0.1
 baseUri: http://server/api/{version}
 
-/remoteDevice:
+/deviceserver:
+  /register:
+    post:
+  /pi:
+    get:
+  /bluetooth:
+    get:
 /pi/{deviceId}:
   /motionSensorHook:
     post:

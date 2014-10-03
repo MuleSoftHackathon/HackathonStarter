@@ -30,7 +30,7 @@ module.exports = function(grunt){
         proxies: [
           {
             context: ['/sphero', '/rccar', '/pi'],
-            host: '192.168.0.2',
+            host: 'localhost',
             port: 8080
           }
         ]
